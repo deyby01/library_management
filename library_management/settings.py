@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalogo',  # Aplicación personalizada para el catálogo de libros
 ]
 
 MIDDLEWARE = [
@@ -77,15 +78,11 @@ WSGI_APPLICATION = 'library_management.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-# Vamos a usar PostgreSQL-binary como base de datos.
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.psycopg2-binary',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
