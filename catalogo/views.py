@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Libro, Autor
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -28,3 +30,9 @@ class AutorDetailView(DetailView):
     model = Autor
     template_name = 'catalogo/detalle_autor.html'
     context_object_name = 'info_autor'
+    
+class RegistroView(CreateView):
+    """Vista para el registro de nuevos usuarios."""
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/registro.html'

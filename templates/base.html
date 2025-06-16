@@ -1,15 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Mi Biblioteca{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
 
     <header>
-        <h1><a href="{% url 'catalogo:pagina_inicio' %}">Biblioteca Central</a></h1>
-        <p>Lista de <a href="{% url 'catalogo:lista_autores' %}">Autores</a></p>
-        <hr>
+        <div>
+            <h1><a href="{% url 'catalogo:pagina_inicio' %}">Biblioteca Central</a></h1>
+            <p>Lista de <a href="{% url 'catalogo:lista_autores' %}">Autores</a></p>
+        </div>
+        <div class="header-links">
+            {% if user.is_authenticated %}
+                <p>Bienvenido, {{ user.username }}</p>
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="link-button">Cerrar sesión</button>
+                </form>
+            {% else %}
+                <p>Bienvenido, Invitado / <a href="{% url 'login' %}">Iniciar sesión</a></p>
+            {% endif %}
+        </div>
     </header>
 
     <main>

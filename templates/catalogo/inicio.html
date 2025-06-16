@@ -1,19 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}Catalogo De Libros{% endblock title %}   
+{% load static %}
+
+{% block title %}Catálogo de Libros{% endblock title %}   
 
 {% block content %}
-
-    <h1>Catalogo Principal</h1>
-    
+<div class="inicio-container">
+    <h1 class="inicio-title">Catálogo Principal</h1>
     {% if libros %}
-        <ul>
+        <ul class="libros-list">
             {% for libro in libros %}
-                <li><a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a> - escrito por <a href="{% url 'catalogo:detalle_autor' pk=libro.autor.pk %}">{{ libro.autor }}</a></li>
+                <li class="libro-item">
+                    <a class="libro-titulo" href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a>
+                    <span class="libro-autor">escrito por 
+                        <a class="autor-link" href="{% url 'catalogo:detalle_autor' pk=libro.autor.pk %}">{{ libro.autor }}</a>
+                    </span>
+                </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No hay libros disponibles en este momento.</p>
+        <p class="no-libros">No hay libros disponibles en este momento.</p>
     {% endif %}
-
+</div>
 {% endblock content %}

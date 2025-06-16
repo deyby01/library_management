@@ -1,0 +1,360 @@
+/* Estilos en la pagina base.*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #f8f9fa;
+}
+
+header {
+    background: #343a40;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header a {
+    color: #ffc107;
+    text-decoration: none;
+}
+.header-links {
+    text-align: right;
+}
+.header-links p, .header-links form {
+    display: inline;
+    margin: 0 0.5rem;
+}
+.link-button {
+    background: none;
+    border: none;
+    color: #ffc107;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+main {
+    padding: 2rem;
+    min-height: 70vh;
+}
+footer {
+    background: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+hr {
+    border: none;
+    border-top: 1px solid #dee2e6;
+    margin: 1rem 0;
+}
+
+/*Aqui iran los estilos para inicio de sesion. --------------------------------------------*/
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0;
+    border: none;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.d-grid {
+    display: flex;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-link {
+    background: none;
+    color: #007bff;
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+
+/*Aqui iran los estilos de la plantilla registro.html -----------------------------------*/
+.form-error {
+    color: #dc3545;
+    font-size: 0.95em;
+    margin-top: 0.25rem;
+}
+.form-text.text-muted {
+    color: #6c757d;
+    font-size: 0.95em;
+}
+
+
+/* aqui iran los estilos de la pagina de inicio -------------------------------------------*/
+.inicio-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem;
+}
+
+.inicio-title {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+.libros-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.libro-item {
+    padding: 1.1rem 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.libro-item:last-child {
+    border-bottom: none;
+}
+
+.libro-titulo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.libro-titulo:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.libro-autor {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.autor-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.autor-link:hover {
+    color: #155724;
+    text-decoration: underline;
+}
+
+.no-libros {
+    text-align: center;
+    color: #dc3545;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+/*Aqui iran los estilos de detalle del libro ------------------------------------------------*/
+.detalle-libro-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.detalle-libro-titulo {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.detalle-libro-autor {
+    font-size: 1.2rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+}
+
+.detalle-libro-info p {
+    font-size: 1.05rem;
+    color: #343a40;
+    margin: 0.5rem 0;
+}
+
+.volver-catalogo {
+    margin-top: 1.5rem;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+
+/*Aqui va a ir el detalle del autor ----------------------------------*/
+.detalle-autor-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.detalle-autor-nombre {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.detalle-autor-bio {
+    font-size: 1.1rem;
+    color: #343a40;
+    margin-bottom: 2rem;
+}
+
+.detalle-autor-libros-titulo {
+    font-size: 1.3rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.detalle-autor-libros-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.detalle-autor-libros-lista li {
+    margin-bottom: 0.7rem;
+}
+
+.detalle-autor-libros-lista a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.detalle-autor-libros-lista a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/*Aqui van los estilos de la lista de autores-------------------------------*/
+.lista-autores-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.lista-autores-titulo {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.lista-autores-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-autores-lista li {
+    margin-bottom: 1rem;
+}
+
+.lista-autores-lista a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.lista-autores-lista a:hover {
+    color: #155724;
+    text-decoration: underline;
+}
+
+.no-autores {
+    color: #dc3545;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}

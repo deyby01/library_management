@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}{{ info_autor }}{% endblock title %}
 
 {% block content %}
+<div class="detalle-autor-container">
+    <h1 class="detalle-autor-nombre">{{ info_autor }}</h1>
+    <p class="detalle-autor-bio">{{ info_autor.mini_biografia }}</p>
 
-    <h1>{{ info_autor.autor }}</h1>
-    <p>{{ info_autor.mini_biografia }}</p>
-
-    <h2>Libros de este autor:</h2>
-    <ul>
+    <h2 class="detalle-autor-libros-titulo">Libros de este autor:</h2>
+    <ul class="detalle-autor-libros-lista">
         {% for libro in info_autor.libros.all %}
             <li>
                 <a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a>
             </li>
+        {% empty %}
+            <li>Este autor no tiene libros registrados.</li>
         {% endfor %}
     </ul>
-
+</div>
 {% endblock content %}

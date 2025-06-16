@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Lista de Autores{% endblock title %}
 
 {% block content %}
-    <h1>Lista de Autores</h1>
-
+<div class="lista-autores-container">
+    <h1 class="lista-autores-titulo">Lista de Autores</h1>
     {% if autores %}
-        <ul>
+        <ul class="lista-autores-lista">
             {% for autor in autores %}
                 <li>
                     <a href="{% url 'catalogo:detalle_autor' pk=autor.pk %}">{{ autor }}</a>
@@ -14,6 +16,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>No hay autores disponibles en este momento.</p>
+        <p class="no-autores">No hay autores disponibles en este momento.</p>
     {% endif %}
+</div>
 {% endblock content %}

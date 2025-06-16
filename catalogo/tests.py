@@ -1,6 +1,9 @@
+from urllib import response
 from django.test import TestCase
 from .models import Autor, Libro
 from django.urls import reverse
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class AutorModelTest(TestCase):
     """Pruebas para el modelo Autor."""
@@ -173,3 +176,43 @@ class AutorDetailViewTest(TestCase):
         self.assertTemplateUsed(response, 'catalogo/detalle_autor.html')
         self.assertContains(response, 'Ray Bradbury')
         self.assertContains(response, 'Fahrenheit 451')
+        
+        
+class RegistroViewTest(TestCase):
+    """Pruebas para la vista de registro de usuario."""
+    
+    def setUp(self):
+        """Preparar la URL que usaremos en todas las pruebas de esta clase."""
+        self.url = reverse('registro')# Usaremos un nuevo nombre de URL 'registro'
+        
+    def test_paginas_de_registro_funciona_correctamente(self):
+        """Verifica que la pagina de registro carga y usa la plantilla correcta."""
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/registro.html')
+        # Verifica que el formulario que se usa es el correcto
+        self.assertTrue(isinstance(response.context['form'], UserCreationForm))
+        
+    def test_registro_crea_nuevo_usuario(self):
+        """Verifica que una petición POST crea un nuevo usuario y redirige."""
+        # Contamos cuantos usuarios hay al principio (debería ser 0)
+        num_usuarios_antes = User.objects.count()
+        
+        # Preparamos los datos que enviaremos en el formulario
+        datos_formulario = {
+            'username': 'usuarioprueba',
+            'password1': 'contraseña123',
+            'password2': 'contraseña123',
+        }
+        
+        # Hacemos la Peticion POST simulando el envío del formulario
+        # follow=True le dice al cliente de pruebas que siga la redirección
+        response = self.client.post(self.url, data=datos_formulario, follow=True)
+        
+        
+        # Verificamos que se ha creado un nuevo usuario
+        self.assertEqual(User.objects.count(), num_usuarios_antes + 1)
+        # Verificamos que el usuario nuevo tiene el nombre de usuario correcto
+        self.assertEqual(User.objects.first().username, 'usuarioprueba')
+        # Verificamos que tras el registro, se redirige a la página de inicio
+        self.assertRedirects(response, reverse('login'))

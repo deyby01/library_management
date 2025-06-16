@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}{{ info_libro.titulo }}{% endblock title %}
 
 {% block content %}
-    <h2>{{ info_libro.titulo }}</h2>
-    <h3>Por: {{ info_libro.autor }}</h3>
-    <p><strong>Género:</strong> {{ info_libro.genero }}</p>
-    <p><strong>Fecha de Publicación:</strong> {{ info_libro.fecha_publicacion }}</p>
-    <p><strong>ISBN:</strong> {{ info_libro.isbn }}</p>
-    
+<div class="detalle-libro-container">
+    <h2 class="detalle-libro-titulo">{{ info_libro.titulo }}</h2>
+    <h3 class="detalle-libro-autor">Por: {{ info_libro.autor }}</h3>
+    <div class="detalle-libro-info">
+        <p><strong>Género:</strong> {{ info_libro.genero }}</p>
+        <p><strong>Fecha de Publicación:</strong> {{ info_libro.fecha_publicacion }}</p>
+        <p><strong>ISBN:</strong> {{ info_libro.ISBN }}</p>
+    </div>
     <hr>
-
-    <a href="{% url 'catalogo:pagina_inicio' %}">Volver al catálogo</a>
-
+    <a href="{% url 'catalogo:pagina_inicio' %}" class="btn btn-link volver-catalogo">← Volver al catálogo</a>
+</div>
 {% endblock content %}
