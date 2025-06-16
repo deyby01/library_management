@@ -5,6 +5,13 @@
 {% block title %}Lista de Autores{% endblock title %}
 
 {% block content %}
+
+    {% if user.is_staff %}
+        <div class="add-autor-admin">
+            <a href="{% url 'admin:catalogo_autor_add' %}" class="btn btn-success">+ Añadir Nuevo Autor</a>
+        </div>
+    {% endif %}
+
 <div class="lista-autores-container">
     <h1 class="lista-autores-titulo">Lista de Autores</h1>
     {% if autores %}

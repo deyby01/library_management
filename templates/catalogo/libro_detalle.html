@@ -14,6 +14,35 @@
         <p><strong>ISBN:</strong> {{ info_libro.ISBN }}</p>
     </div>
     <hr>
+    <h3>Comentarios ({{ comentarios.count }})</h3>
+    {% if user.is_authenticated %}
+        <form action="" method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type='submit'>Enviar Comentario</button>
+        </form>
+    {% else %}
+        <p>Debes <a href="{% url 'login' %}?next={{ request.path }}">iniciar sesión</a> para comentar.</p>
+    {% endif %}
+
+    <hr>
+
+    {% for comentario in comentarios %}
+        <article>
+            <p>
+                <strong>{{ comentario.usuario.username }}</strong>
+                {% if comentario.usuario.is_staff %}
+                    <span class='admin-badge'>(administrador)</span>
+                {% endif %}
+                <small> - {{ comentario.fecha_creacion|date:"d M Y, H:i" }}</small>
+            </p>
+            <p>{{ comentario.contenido|linebreaksbr }}</p>
+        </article>
+        <hr>
+    {% empty %}
+        <p>No hay comentarios aún. ¡Sé el primero en comentar!</p>
+    {% endfor %}
+
     <a href="{% url 'catalogo:pagina_inicio' %}" class="btn btn-link volver-catalogo">← Volver al catálogo</a>
 </div>
 {% endblock content %}

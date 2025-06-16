@@ -5,6 +5,13 @@
 {% block title %}Catálogo de Libros{% endblock title %}   
 
 {% block content %}
+
+    {% if user.is_staff %}
+        <div class="add-libro-admin">
+            <a href="{% url 'admin:catalogo_libro_add' %}" class="btn btn-success">+ Añadir Nuevo Libro</a>
+        </div>
+    {% endif %}
+
 <div class="inicio-container">
     <h1 class="inicio-title">Catálogo Principal</h1>
     {% if libros %}

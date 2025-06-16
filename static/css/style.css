@@ -55,7 +55,7 @@ hr {
     margin: 1rem 0;
 }
 
-/*Aqui iran los estilos para inicio de sesion. --------------------------------------------*/
+/*Aqui iran los estilos para inicio de sesion. ---------------------------------------------------------------------------------*/
 .container {
     max-width: 500px;
     margin: 40px auto;
@@ -142,7 +142,8 @@ hr {
 }
 
 
-/*Aqui iran los estilos de la plantilla registro.html -----------------------------------*/
+
+/*Aqui iran los estilos de la plantilla registro.html ------------------------------------------------------------------*/
 .form-error {
     color: #dc3545;
     font-size: 0.95em;
@@ -154,7 +155,7 @@ hr {
 }
 
 
-/* aqui iran los estilos de la pagina de inicio -------------------------------------------*/
+/* aqui iran los estilos de la pagina de inicio ----------------------------------------------------------------------*/
 .inicio-container {
     max-width: 700px;
     margin: 40px auto;
@@ -227,6 +228,32 @@ hr {
     margin-top: 2rem;
 }
 
+/*Para el link de añadir libro, esto pertenece al inicio*/
+.add-libro-admin {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    color: #fff;
+    text-decoration: none;
+}
+
+
 /*Aqui iran los estilos de detalle del libro ------------------------------------------------*/
 .detalle-libro-container {
     max-width: 500px;
@@ -263,7 +290,7 @@ hr {
 }
 
 
-/*Aqui va a ir el detalle del autor ----------------------------------*/
+/*Aqui va a ir el detalle del autor -------------------------------------------------------------------*/
 .detalle-autor-container {
     max-width: 600px;
     margin: 40px auto;
@@ -313,7 +340,72 @@ hr {
     text-decoration: underline;
 }
 
-/*Aqui van los estilos de la lista de autores-------------------------------*/
+.detalle-libro-container form {
+    margin: 2rem 0 1.5rem 0;
+    background: #f7f7f9;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.detalle-libro-container form button[type='submit'] {
+    margin-top: 0.5rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.detalle-libro-container form button[type='submit']:hover {
+    background: #0056b3;
+}
+
+.detalle-libro-container article {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    text-align: left;
+}
+
+.admin-badge {
+    background: #ffc107;
+    color: #343a40;
+    font-size: 0.85em;
+    padding: 0.1em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.5em;
+    font-weight: 600;
+}
+
+.detalle-libro-container .volver-catalogo {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+.detalle-libro-container h3 {
+    margin-top: 2rem;
+    color: #007bff;
+}
+
+.detalle-libro-container p small {
+    color: #6c757d;
+}
+
+/*Boton para añadir autor*/
+.add-autor-admin {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+
+/*Aqui van los estilos de la lista de autores------------------------------------------------*/
 .lista-autores-container {
     max-width: 600px;
     margin: 40px auto;
