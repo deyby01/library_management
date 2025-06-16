@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info_autor }}{% endblock title %}
+
+{% block content %}
+
+    <h1>{{ info_autor.autor }}</h1>
+    <p>{{ info_autor.mini_biografia }}</p>
+
+    <h2>Libros de este autor:</h2>
+    <ul>
+        {% for libro in info_autor.libros.all %}
+            <li>
+                <a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

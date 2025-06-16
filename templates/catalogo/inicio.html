@@ -9,11 +9,11 @@
     {% if libros %}
         <ul>
             {% for libro in libros %}
-                <li><a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a> - escrito por {{ libro.autor }}</li>
+                <li><a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a> - escrito por <a href="{% url 'catalogo:detalle_autor' pk=libro.autor.pk %}">{{ libro.autor }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
         <p>No hay libros disponibles en este momento.</p>
     {% endif %}
-    
+
 {% endblock content %}

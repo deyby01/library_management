@@ -100,3 +100,76 @@ class PaginaInicioViewTest(TestCase):
         self.assertContains(response, 'Cien años de soledad')
         self.assertContains(response, 'Crónica de una muerte anunciada')    
         
+
+# Creamos una prueba para ver si podemos acceder a la informacion de un Autor
+class AutorListViewTest(TestCase):
+    """Pruebas para ver los autores."""
+    #1.- Arrangre, preparamos los datos necesarios
+    def setUp(self):
+        self.autor1 = Autor.objects.create(
+            nombre='J.K.',
+            apellido='Rowling',
+            mini_biografia='Autora de la saga Harry Potter.'
+        )
+        self.autor2 = Autor.objects.create(
+            nombre='J.R.R.',
+            apellido='Tolkien',
+            mini_biografia='Autor de El Señor de los Anillos.'
+        )
+        self.autor3 = Autor.objects.create(
+            nombre='Isaac',
+            apellido='Asimov',
+            mini_biografia='Creador de la Fundación y las leyes de la robótica.'
+        )
+    #2.- Act, solicitamos la url que queremos probar
+    def test_pagina_lista_autores_funciona(self):
+        response = self.client.get(reverse('catalogo:lista_autores'))
+        
+        #3.- Assert, verificamos que la respuesta sea correcta
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'catalogo/lista_autores.html')
+        self.assertContains(response, 'Isaac Asimov')
+
+
+class AutorDetailViewTest(TestCase):
+    """Pruebas para ver los detalles de un autor."""
+    def setUp(self):
+        self.autor = Autor.objects.create(
+            nombre='Ray',
+            apellido='Bradbury',
+            mini_biografia='Autor de Fahrenheit 451.'
+        )
+        self.libro = Libro.objects.create(
+            titulo='Fahrenheit 451',
+            slug='fahrenheit-451',
+            autor=self.autor,
+            genero='Ciencia ficción',
+            ISBN='978-0-7432-4722-1',
+            fecha_publicacion='1953-10-19'
+        )
+        self.libro2 = Libro.objects.create(
+            titulo='Crónicas Marcianas',
+            slug='cronicas-marcianas',
+            autor=self.autor,
+            genero='Ciencia ficción',
+            ISBN='978-0-7432-4723-8',
+            fecha_publicacion='1950-09-30'
+        )
+        self.libro3 = Libro.objects.create(
+            titulo='El hombre ilustrado',
+            slug='el-hombre-ilustrado',
+            autor=self.autor,
+            genero='Ciencia ficción',
+            ISBN='978-0-7432-4724-5',
+            fecha_publicacion='1951-03-01'
+        )
+        
+    def test_autor_detalle_funciona(self):
+        url = reverse('catalogo:detalle_autor', kwargs={'pk': self.autor.pk})
+        response = self.client.get(url)
+        
+        # Verificar
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'catalogo/detalle_autor.html')
+        self.assertContains(response, 'Ray Bradbury')
+        self.assertContains(response, 'Fahrenheit 451')
