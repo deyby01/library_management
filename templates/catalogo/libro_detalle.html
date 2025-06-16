@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ info_libro.titulo }}{% endblock title %}
+
+{% block content %}
+    <h2>{{ info_libro.titulo }}</h2>
+    <h3>Por: {{ info_libro.autor }}</h3>
+    <p><strong>Género:</strong> {{ info_libro.genero }}</p>
+    <p><strong>Fecha de Publicación:</strong> {{ info_libro.fecha_publicacion }}</p>
+    <p><strong>ISBN:</strong> {{ info_libro.isbn }}</p>
+    
+    <hr>
+
+    <a href="{% url 'catalogo:pagina_inicio' %}">Volver al catálogo</a>
+
+{% endblock content %}

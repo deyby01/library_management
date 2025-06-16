@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Catalogo De Libros{% endblock title %}   
+
+{% block content %}
+
+    <h1>Catalogo Principal</h1>
+    
+    {% if libros %}
+        <ul>
+            {% for libro in libros %}
+                <li><a href="{% url 'catalogo:libro_detalle' slug=libro.slug %}">{{ libro.titulo }}</a> - escrito por {{ libro.autor }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay libros disponibles en este momento.</p>
+    {% endif %}
+    
+{% endblock content %}

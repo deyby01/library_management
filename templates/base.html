@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Biblioteca{% endblock title %}</title>
+</head>
+<body>
+
+    <header>
+        <h1><a href="{% url 'catalogo:pagina_inicio' %}">Biblioteca Central</a></h1>
+        <p>Un proyecto para aprender Django</p>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2025 - Mi Proyecto de Biblioteca</p>
+    </footer>
+
+</body>
+</html>
